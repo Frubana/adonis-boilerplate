@@ -9,6 +9,7 @@
 |
 */
 const providers = [
+  `${__dirname}/../providers/NewRelicProvider`,
   '@adonisjs/framework/providers/AppProvider',
   '@adonisjs/auth/providers/AuthProvider',
   '@adonisjs/bodyparser/providers/BodyParserProvider',

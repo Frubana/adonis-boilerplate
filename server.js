@@ -23,3 +23,6 @@ new Ignitor(fold)
   .appRoot(__dirname)
   .fireHttpServer()
   .catch(console.error);
+
+// Load new relic agent.
+require('newrelic');
