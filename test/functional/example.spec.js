@@ -1,5 +1,7 @@
+/** @type {import('@adonisjs/vow/src/Suite')} */
 const { test, trait } = use('Test/Suite')('Post');
 
+/** @type {import('@adonisjs/vow/src/ApiClient')} */
 trait('Test/ApiClient');
 
 test('get list of posts', async ({ client }) => {

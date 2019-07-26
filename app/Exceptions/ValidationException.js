@@ -1,6 +1,6 @@
-const { LogicalException } = require('@adonisjs/generic-exceptions');
+const { HttpException } = require('@adonisjs/generic-exceptions');
 
-class ValidationException extends LogicalException {
+class ValidationException extends HttpException {
   constructor(messages) {
     super(messages[0].message, 400, 404);
   }

@@ -1,3 +1,4 @@
+/** @type {import('@adonisjs/framework/src/Exception/BaseHandler')} */
 const BaseExceptionHandler = use('BaseExceptionHandler');
 
 /** @type {import('@adonisjs/framework/src/Logger')} */

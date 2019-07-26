@@ -1,5 +1,9 @@
+/** @type {import('@adonisjs/vow/src/Suite')} */
 const { test } = use('Test/Suite')('Example unit test');
+
+/** @type {import('@adonisjs/validator/src/Validator')} */
 const { validate } = use('Validator');
+
 const TestValidator = use('App/Validators/Test');
 
 test('validate user details', async ({ assert }) => {
