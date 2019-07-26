@@ -1,45 +1,16 @@
-const { test, trait } = use('Test/Suite')('Post');
+const { test } = use('Test/Suite')('Example unit test');
+const { validate } = use('Validator');
+const TestValidator = use('App/Validators/Test');
 
-trait('Test/ApiClient');
-
-test('get list of posts', async ({ client }) => {
+test('validate user details', async ({ assert }) => {
   const data = {
-    email: 'andres.silva@frubana.com',
-    password: 'frubana123',
-    error: 'true'
+    email: 'bad email'
   };
 
-  const response = await client
-    .post('/test')
-    .send(data)
-    .type('json')
-    .end();
+  const validator = new TestValidator();
 
-  response.assertStatus(400);
-});
+  const validation = await validate(data, validator.rules);
 
-test('get list of posts', async ({ client }) => {
-  const data = {
-    email: 'andres.silva@frubana.com',
-    password: 'frubana123',
-    error: 'false'
-  };
-
-  const response = await client
-    .post('/test')
-    .send(data)
-    .type('json')
-    .end();
-
-  response.assertStatus(200);
-});
-
-test('get list of posts', async ({ client }) => {
-  const response = await client
-    .post('/test')
-    .send({})
-    .type('json')
-    .end();
-
-  response.assertStatus(400);
+  assert.isTrue(validation.fails());
+  assert.isNotNull(validation.messages());
 });

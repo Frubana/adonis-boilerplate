@@ -5,15 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "demon": "npx nodemon server.js",
+    "dev": "adonis serve --dev",
     "test": "node ace test",
     "lint": "./node_modules/.bin/eslint ./**.js --fix"
   },
-  "keywords": [
-    "adonisjs",
-    "adonis-app"
-  ],
-  "author": "",
+  "author": "@andresilvagomez",
   "license": "",
   "private": true,
   "dependencies": {
@@ -38,7 +34,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
-    "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
     "sqlite3": "^4.0.9"
   },
