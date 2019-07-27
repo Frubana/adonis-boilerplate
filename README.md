@@ -67,3 +67,60 @@ const Server = use('Server');
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const User = use('App/Models/User');
 ```
+
+## How use Kafka consumer
+
+```js
+// start/kafka.js
+
+const Kafka = use('Kafka');
+
+Kafka.on('topic_name', (data, commit) => {
+  commit();
+});
+
+Kafka.on('topic_name', 'TestController.index');
+```
+
+```js
+// app/Controllers/Kafka/TestController.js
+
+/** @type {import('@adonisjs/framework/src/Logger')} */
+const Logger = use('Logger');
+
+class TestController {
+  index(data, commit) {
+    Logger.info('kafka data', data);
+
+    commit();
+  }
+}
+
+module.exports = TestController;
+```
+
+```js
+// server.js
+
+new Ignitor(fold)
+  .appRoot(__dirname)
+  // Only add the next line
+  .preLoad('start/kafka')
+  .fireHttpServer()
+  .catch(console.error);
+```
+
+```js
+// start/app.js
+const providers = [
+  ...,
+  ...,
+  `${__dirname}/../providers/Kafka/Provider`
+];
+```
+
+```js
+// config/kafka.js
+
+Update your config file.
+```

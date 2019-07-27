@@ -26,7 +26,8 @@
     "@adonisjs/validator": "^5.0.6",
     "@adonisjs/vow": "^1.0.17",
     "lodash": "^4.17.15",
-    "newrelic": "^5.10.0"
+    "newrelic": "^5.10.0",
+    "node-rdkafka": "2.7.0"
   },
   "devDependencies": {
     "eslint": "5.3.0",
