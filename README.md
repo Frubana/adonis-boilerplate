@@ -141,3 +141,16 @@ class Yourcontroller {
   }
 }
 ```
+
+## Logger levels
+
+| Level | Method  | Usage                       |
+| ----- | ------- | --------------------------- |
+| 0     | emerg   | Logger.emerg(msg, …​data)   |
+| 1     | alert   | Logger.alert(msg, …​data)   |
+| 2     | crit    | Logger.crit(msg, …​data)    |
+| 3     | error   | Logger.error(msg, …​data)   |
+| 4     | warning | Logger.warning(msg, …​data) |
+| 5     | notice  | Logger.notice(msg, …​data)  |
+| 6     | info    | Logger.info(msg, …​data)    |
+| 7     | debug   | Logger.debug(msg, …​data)   |
