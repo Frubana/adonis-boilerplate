@@ -124,3 +124,20 @@ const providers = [
 
 Update your config file.
 ```
+
+### Produce some events.
+
+```js
+// yourcontroller.js
+
+const Kafka = use('Kafka');
+
+class Yourcontroller {
+  somefunction() {
+    // data is a json object
+
+    const data = {};
+    Kafka.send('topicname', data);
+  }
+}
+```

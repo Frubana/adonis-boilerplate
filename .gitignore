@@ -13,6 +13,7 @@ database/adonis.sqlite
 
 # Exclude lock files
 yarn.lock
+package-lock.json
 
 # Exclude newrelic events
 newrelic_agent.log 
