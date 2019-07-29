@@ -54,6 +54,7 @@ class ExceptionHandler extends BaseExceptionHandler {
    */
   async report(error) {
     Logger.error(error);
+    Logger.error(error.stack);
   }
 }
 
