@@ -25,6 +25,7 @@
     "@adonisjs/redis": "^2.0.7",
     "@adonisjs/validator": "^5.0.6",
     "@adonisjs/vow": "^1.0.17",
+    "@frubana/adonis-kafka": "git+ssh://git@github.com/Frubana/adonis-kafka.git",
     "lodash": "^4.17.15",
     "newrelic": "^5.10.0",
     "node-rdkafka": "2.7.0"

@@ -66,81 +66,14 @@ const Server = use('Server');
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const User = use('App/Models/User');
-```
 
-## How use Kafka consumer
-
-```js
-// start/kafka.js
-
+/** @type {typeof import('@frubana/adonis-kafka/src')} */
 const Kafka = use('Kafka');
-
-Kafka.on('topic_name', (data, commit) => {
-  commit();
-});
-
-Kafka.on('topic_name', 'TestController.index');
 ```
 
-```js
-// app/Controllers/Kafka/TestController.js
+## If you want include Kafka follow the next instructions
 
-/** @type {import('@adonisjs/framework/src/Logger')} */
-const Logger = use('Logger');
-
-class TestController {
-  index(data, commit) {
-    Logger.info('kafka data', data);
-
-    commit();
-  }
-}
-
-module.exports = TestController;
-```
-
-```js
-// server.js
-
-new Ignitor(fold)
-  .appRoot(__dirname)
-  // Only add the next line
-  .preLoad('start/kafka')
-  .fireHttpServer()
-  .catch(console.error);
-```
-
-```js
-// start/app.js
-const providers = [
-  ...,
-  ...,
-  `${__dirname}/../providers/Kafka/Provider`
-];
-```
-
-```js
-// config/kafka.js
-
-Update your config file.
-```
-
-### Produce some events.
-
-```js
-// yourcontroller.js
-
-const Kafka = use('Kafka');
-
-class Yourcontroller {
-  somefunction() {
-    // data is a json object
-
-    const data = {};
-    Kafka.send('topicname', data);
-  }
-}
-```
+[Adonis Kafka](https://github.com/Frubana/adonis-kafka)
 
 ## Logger levels
 
