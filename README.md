@@ -75,6 +75,10 @@ const Kafka = use('Kafka');
 
 [Adonis Kafka](https://github.com/Frubana/adonis-kafka)
 
+```bash
+adonis install @frubana/adonis-kafka
+```
+
 ## Logger levels
 
 | Level | Method  | Usage                       |
