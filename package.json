@@ -9,7 +9,7 @@
     "test": "node ace test",
     "lint": "./node_modules/.bin/eslint ./**.js --fix"
   },
-  "author": "@andresilvagomez",
+  "author": "@frubana",
   "license": "",
   "private": true,
   "dependencies": {
@@ -25,7 +25,7 @@
     "@adonisjs/redis": "^2.0.7",
     "@adonisjs/validator": "^5.0.6",
     "@adonisjs/vow": "^1.0.17",
-    "@frubana/adonis-newrelic": "^0.0.2",
+    "@frubana/adonis-newrelic": "^0.0.3",
     "newrelic": "^5.11.0"
   },
   "devDependencies": {
@@ -36,10 +36,16 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.2",
+    "husky": "^3.0.3",
     "prettier": "^1.18.2",
     "sqlite3": "^4.0.9"
   },
   "autoload": {
     "App": "./app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
   }
 }
