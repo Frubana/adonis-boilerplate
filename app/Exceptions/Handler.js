@@ -4,6 +4,9 @@ const BaseExceptionHandler = use('BaseExceptionHandler');
 /** @type {import('@adonisjs/framework/src/Logger')} */
 const Logger = use('Logger');
 
+/** @type {import('@adonisjs/framework/src/Env')} */
+const Env = use('Env');
+
 /**
  * This class handles all exceptions thrown during
  * the HTTP request lifecycle.
@@ -53,6 +56,9 @@ class ExceptionHandler extends BaseExceptionHandler {
    * @return {void}
    */
   async report(error) {
+    if (!Env.get('ERROR_REPORT', false)) {
+      return;
+    }
     Logger.error(error);
     Logger.error(error.stack);
   }

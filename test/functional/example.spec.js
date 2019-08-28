@@ -1,5 +1,7 @@
 /** @type {import('@adonisjs/vow/src/Suite')} */
 const { test, trait } = use('Test/Suite')('Post');
+/** @type {import('http-status-codes')} */
+const HttpStatus = use('http-status-codes');
 
 /** @type {import('@adonisjs/vow/src/ApiClient')} */
 trait('Test/ApiClient');
@@ -17,7 +19,7 @@ test('get list of posts', async ({ client }) => {
     .type('json')
     .end();
 
-  response.assertStatus(400);
+  response.assertStatus(HttpStatus.BAD_REQUEST);
 });
 
 test('get list of posts', async ({ client }) => {
@@ -33,7 +35,7 @@ test('get list of posts', async ({ client }) => {
     .type('json')
     .end();
 
-  response.assertStatus(200);
+  response.assertStatus(HttpStatus.OK);
 });
 
 test('get list of posts', async ({ client }) => {
@@ -43,5 +45,15 @@ test('get list of posts', async ({ client }) => {
     .type('json')
     .end();
 
-  response.assertStatus(400);
+  response.assertStatus(HttpStatus.BAD_REQUEST);
+});
+
+test('Test invalid route', async ({ client }) => {
+  const response = await client
+    .post('/')
+    .send({})
+    .type('json')
+    .end();
+
+  response.assertStatus(HttpStatus.NOT_FOUND);
 });

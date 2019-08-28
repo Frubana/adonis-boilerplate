@@ -16,4 +16,7 @@ yarn.lock
 package-lock.json
 
 # Exclude newrelic events
-newrelic_agent.log 
+newrelic_agent.log
+
+## Remove coverage
+.nyc_output/

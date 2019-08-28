@@ -16,7 +16,9 @@ class TestController {
       throw new TestException();
     }
 
-    const users = await User.all();
+    const users = await User.query()
+      .with('tokens')
+      .fetch();
 
     response.json(users);
   }
