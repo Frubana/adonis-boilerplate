@@ -15,6 +15,7 @@ class UserSchema extends Schema {
         .unique();
       table.string('password', 60).notNullable();
       table.timestamps();
+      table.timestamp('deleted_at');
     });
   }
 

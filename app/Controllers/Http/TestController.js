@@ -1,3 +1,6 @@
+/** @typedef {import('@adonisjs/framework/src/Request')} Request */
+/** @typedef {import('@adonisjs/framework/src/Response')} Response */
+
 /** @type {import('@adonisjs/framework/src/Logger')} */
 const Logger = use('Logger');
 
@@ -7,6 +10,11 @@ const TestException = use('App/Exceptions/TestException');
 const User = use('App/Models/User');
 
 class TestController {
+  /**
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   */
   async index({ request, response }) {
     Logger.info('index in test controller');
 

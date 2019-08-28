@@ -6,11 +6,11 @@ const HttpStatus = use('http-status-codes');
 /** @type {import('@adonisjs/vow/src/ApiClient')} */
 trait('Test/ApiClient');
 
-test('get list of posts', async ({ client }) => {
+test('get list of users with error', async ({ client }) => {
   const data = {
     email: 'andres.silva@frubana.com',
     password: 'frubana123',
-    error: 'true'
+    error: true
   };
 
   const response = await client
@@ -22,7 +22,7 @@ test('get list of posts', async ({ client }) => {
   response.assertStatus(HttpStatus.BAD_REQUEST);
 });
 
-test('get list of posts', async ({ client }) => {
+test('get list of users', async ({ client }) => {
   const data = {
     email: 'andres.silva@frubana.com',
     password: 'frubana123',
@@ -38,7 +38,7 @@ test('get list of posts', async ({ client }) => {
   response.assertStatus(HttpStatus.OK);
 });
 
-test('get list of posts', async ({ client }) => {
+test('get list of users', async ({ client }) => {
   const response = await client
     .post('/test')
     .send({})
@@ -48,7 +48,7 @@ test('get list of posts', async ({ client }) => {
   response.assertStatus(HttpStatus.BAD_REQUEST);
 });
 
-test('Test invalid route', async ({ client }) => {
+test('get bad route', async ({ client }) => {
   const response = await client
     .post('/')
     .send({})
