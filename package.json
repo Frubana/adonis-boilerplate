@@ -9,7 +9,7 @@
     "test": "nyc node ace test",
     "lint": "./node_modules/.bin/eslint ./**.js --fix",
     "build": "adonis migration:refresh && adonis seed && npm run test",
-    "cover": "npx nyc report --reporter=html"
+    "cover": "npx nyc report --reporter=html && open coverage/index.html"
   },
   "author": "@frubana",
   "license": "",
