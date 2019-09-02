@@ -56,7 +56,7 @@ class ExceptionHandler extends BaseExceptionHandler {
    * @return {void}
    */
   async report(error) {
-    if (!Env.get('ERROR_REPORT', false)) {
+    if (!(Env.get('ERROR_REPORT', false) === 'true')) {
       return;
     }
     Logger.error(error);
