@@ -42,7 +42,7 @@
     "husky": "^3.0.3",
     "nyc": "^14.1.1",
     "prettier": "^1.18.2",
-    "sqlite3": "^4.0.9"
+    "sqlite3": "^4.1.0"
   },
   "autoload": {
     "App": "./app"
