@@ -9,7 +9,6 @@
 |
 */
 const providers = [
-  `@frubana/adonis-newrelic/providers/Provider`,
   '@adonisjs/framework/providers/AppProvider',
   '@adonisjs/auth/providers/AuthProvider',
   '@adonisjs/bodyparser/providers/BodyParserProvider',
