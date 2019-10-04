@@ -1,6 +1,3 @@
-/** @type {import('@adonisjs/framework/src/Env')} */
-const Env = use('Env');
-
 /**
  * New Relic agent configuration.
  *
@@ -11,11 +8,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: [Env.get('APP_NAME')],
+  app_name: [process.env.NEW_RELIC_APP_NAME],
   /**
    * Your New Relic license key.
    */
-  license_key: Env.get('NEW_RELIC'),
+  license_key: process.env.NEW_RELIC_LICENSE_KEY,
 
   logging: {
     /**
