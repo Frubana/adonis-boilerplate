@@ -21,3 +21,5 @@ newrelic_agent.log
 ## Remove coverage
 .nyc_output/
 coverage/
+
+database/*.sqlite

@@ -54,4 +54,16 @@ const aliases = {};
 */
 const commands = ['App/Commands/Repository'];
 
+/*
+|--------------------------------------------------------------------------
+| NewRelic
+|--------------------------------------------------------------------------
+|
+| This env works directly with the process
+|
+*/
+if (process.env.INSTALL_NEWRELIC) {
+  providers.push(`@frubana/adonis-newrelic/providers/Provider`);
+}
+
 module.exports = { providers, aceProviders, aliases, commands };

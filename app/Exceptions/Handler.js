@@ -7,6 +7,8 @@ const Logger = use('Logger');
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env');
 
+const Youch = use('youch');
+
 /**
  * This class handles all exceptions thrown during
  * the HTTP request lifecycle.
@@ -25,23 +27,27 @@ class ExceptionHandler extends BaseExceptionHandler {
    *
    * @return {void}
    */
-  async handle(error, { response }) {
-    switch (error.code) {
-      case 'E_VALIDATION_FAILED':
-        error.message = error.messages[0].message;
-        break;
+  async handle(error, { response, request }) {
+    if (Env.get('NODE_ENV') === 'development') {
+      const youch = new Youch(error, request.request);
+      const html = await youch.toHTML();
+      response.status(error.status).send(html);
 
-      case 'E_ROUTE_NOT_FOUND':
-        error.message = error.message.replace('E_ROUTE_NOT_FOUND: ', '');
-        break;
+      return;
+    }
 
-      default:
-        Logger.error(error.code);
+    if (error.status >= 500) {
+      response.status(500).send({
+        message: 'We have an interal issue we report it to the team',
+        code: 'INTERNAL'
+      });
+
+      return;
     }
 
     response.status(error.status).send({
       message: error.message,
-      code: error.code || 400
+      code: error.code
     });
   }
 
@@ -59,6 +65,7 @@ class ExceptionHandler extends BaseExceptionHandler {
     if (!(Env.get('ERROR_REPORT', false) === 'true')) {
       return;
     }
+
     Logger.error(error);
     Logger.error(error.stack);
   }

@@ -24,6 +24,3 @@ new Ignitor(fold)
   .fireHttpServer()
   // eslint-disable-next-line no-console
   .catch(console.error);
-
-// Load new relic agent.
-require('newrelic');

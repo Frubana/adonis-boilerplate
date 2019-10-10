@@ -1,5 +1,5 @@
 {
   "check-coverage": true,
-  "include": ["app/**"],
-  "exclude": ["app/Commands/**", "app/Models/Traits/**"]
+  "include": ["app/**", "providers/*"],
+  "exclude": ["app/Commands/**", "app/Models/Traits/**", "app/Exceptions/Handler.js"]
 }
