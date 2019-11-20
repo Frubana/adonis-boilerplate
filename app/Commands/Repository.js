@@ -28,7 +28,7 @@ class MakeRepository extends Command {
   }
 
   repositoryName(name) {
-    const includes = name.includes('Repository');
+    const includes = name.toLowerCase().endsWith('repository');
 
     if (includes) {
       return name;
