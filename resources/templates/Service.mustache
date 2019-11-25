@@ -1,0 +1,10 @@
+/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
+const Model = use('Model');
+
+class {{name}} {
+  async getAll() {
+    return Model.all();
+  }
+}
+
+module.exports = new {{name}}();

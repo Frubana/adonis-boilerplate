@@ -25,7 +25,7 @@ test('get list of users with error', async ({ client }) => {
   response.assertStatus(HttpStatus.BAD_REQUEST);
 });
 
-test('get list of users', async ({ client }) => {
+test('create users', async ({ client }) => {
   const data = {
     email: 'andres.silva@frubana.com',
     password: 'frubana123',
@@ -41,7 +41,7 @@ test('get list of users', async ({ client }) => {
   response.assertStatus(HttpStatus.OK);
 });
 
-test('get list of users', async ({ client }) => {
+test('create users empty', async ({ client }) => {
   const response = await client
     .post('/test')
     .send({})

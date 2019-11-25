@@ -52,7 +52,10 @@ const aliases = {};
 | Here you store ace commands for your package
 |
 */
-const commands = ['App/Commands/Repository'];
+const commands = [
+  'App/Commands/Repository',
+  'App/Commands/Service',
+];
 
 /*
 |--------------------------------------------------------------------------
