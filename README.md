@@ -69,6 +69,9 @@ const User = use('App/Models/User');
 
 /** @type {typeof import('@frubana/adonis-kafka/src')} */
 const Kafka = use('Kafka');
+
+/** @type {import('ioredis').Redis} */
+const Redis = use('Redis');
 ```
 
 ## If you want include Kafka follow the next instructions
